@@ -2,21 +2,21 @@ import { dart } from './shapes/dart'
 import { polygon } from './shapes/polygon'
 import { rotateVector } from './utils/rotate-vector'
 
-const frames = 60
-const draw = (graph, pageSize, goDeeper) => {
+const frames = 120
+const draw = (graph, pageSize, goDeeper, timeout, animationDelayMs) => {
   requestAnimationFrame(() => {
-    let pageSize = 100
+    let paging = pageSize
     let nodes = []
-    while (pageSize) {
+    while (paging) {
       const idx = Math.round(Math.random() * graph.length)
       nodes.push(graph.splice(idx, 1).shift())
-      pageSize--
+      paging--
     }
     nodes.forEach((node) => {
       if (node !== undefined) polygon(node)
     })
-    if (graph.length) draw(graph, pageSize, goDeeper)
-    else goDeeper()
+    if (graph.length) draw(graph, pageSize, goDeeper, timeout, animationDelayMs)
+    else timeout.current = setTimeout(goDeeper, 2000)
   })
 }
 
@@ -40,8 +40,8 @@ const buildGraph = (depth) => {
   return graph.flat(Infinity)
 }
 
-export const animate = (depth, goDeeper) => {
+export const animate = (depth, goDeeper, timeout, animationDelayMs) => {
   const graph = buildGraph(depth)
-  const pageSize = Math.round(graph / frames) < 100
-  draw(graph, pageSize, goDeeper)
+  const pageSize = Math.round(graph.length / frames)
+  draw(graph, pageSize, goDeeper, timeout, animationDelayMs)
 }

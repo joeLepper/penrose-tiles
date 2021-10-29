@@ -8,14 +8,37 @@
   <style>
     body {
       margin: 0;
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    #root {
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      padding: 2em;
+    }
+
+    #invisible-mirror {
+      height: 100vh;
+      width: 100vw;
+    }
+
+    button {
+      border: 2px #ccc solid;
+      background-color: rgba(255, 255, 255, 0.75);
+      padding: 1em 4em;
+      margin: 0.5em;
     }
   </style>
   <title>penrose tiles</title>
 </head>
 
 <body>
+  <div id="root"></div>
   <canvas id="stage"></canvas>
-  <script type="module" src="/src/main.js"></script>
+  <canvas id="invisible-mirror"></canvas>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>
