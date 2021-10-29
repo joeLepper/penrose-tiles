@@ -33,10 +33,46 @@ export const interpolate = (a, b, ratio) => {
     a[1] + (b[1] - a[1]) * ratio,
   ]
 }
-export const fills = [
+export let fills = [
   '#999',
+  '#333',
   '#666',
-  '#eee',
   '#aaa',
-  '#000',
+  '#ccc',
+  '#111',
+  '#f09',
+  '#f90',
+  '#9f0',
 ]
+
+export let strokes = [
+  '#999',
+  '#333',
+  '#666',
+  '#aaa',
+  '#ccc',
+  '#111',
+  '#f09',
+  '#f90',
+  '#9f0',
+]
+
+const shuffle = (arr) => {
+  let currentIndex = arr.length
+  let randomIndex
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex--
+    [arr[currentIndex], arr[randomIndex]] = [
+      arr[randomIndex], arr[currentIndex]]
+  }
+  return arr;
+}
+
+export const shuffleFills = () => {
+  fills = shuffle(fills)
+}
+
+export const shuffleStrokes = () => {
+  strokes = shuffle(strokes)
+}
