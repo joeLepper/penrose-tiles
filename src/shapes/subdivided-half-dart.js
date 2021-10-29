@@ -1,6 +1,6 @@
 import { halfDart } from "./half-dart"
 import { halfKite } from "./half-kite"
-import { calculateVectorEnd, vectorBetween, calculateKiteApex } from "./utils"
+import { calculateVectorEnd, vectorBetween, calculateKiteApex } from "../utils"
 
 export const subdividedHalfDart = ({ point, vector: parentDartVector, side, depth, apex: parentDartApex }) => {
   const parentDartTail = calculateVectorEnd(point, parentDartVector)

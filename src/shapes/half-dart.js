@@ -1,6 +1,6 @@
 import { subdividedHalfDart } from './subdivided-half-dart'
 import { triangle } from './triangle'
-import { calculateVectorEnd, calculateDartApex } from './utils'
+import { calculateVectorEnd, calculateDartApex } from '../utils'
 
 export const halfDart = ({ point, vector, side, depth, label }) => {
   const tail = calculateVectorEnd(point, vector)

@@ -1,6 +1,6 @@
 import { triangle } from './triangle'
 import { subdividedHalfKite } from './subdivided-half-kite'
-import { calculateVectorEnd, calculateKiteApex } from './utils'
+import { calculateVectorEnd, calculateKiteApex } from '../utils'
 
 export const halfKite = ({ depth, point, vector, side, label }) => {
   const tail = calculateVectorEnd(point, vector)

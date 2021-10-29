@@ -1,4 +1,4 @@
-import { LEFT, RIGHT } from './constants'
+import { LEFT, RIGHT } from '../constants'
 import { halfKite } from './half-kite'
 
 export const kite = (props) => {

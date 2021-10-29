@@ -1,22 +1,20 @@
-import { app } from './app'
+import { animate } from './animate'
 import { shuffleFills, shuffleStrokes } from './utils'
 
 const canvas = document.getElementById('stage')
-canvas.width = window.innerWidth
-canvas.height = window.innerHeight
+canvas.width = window.screen.availWidth
+canvas.height = window.screen.availHeight
 
 let ascending = true
 let depth = 4
 const goDeeper = () => {
   if (depth === 10) ascending = false
   else if (depth === 4) ascending = true
-
   shuffleFills()
   shuffleStrokes()
-
   setTimeout(() => {
-    if (ascending) app(depth++, goDeeper)
-    else app(depth--, goDeeper)
+    if (ascending) animate(depth++, goDeeper)
+    else animate(depth--, goDeeper)
   }, 2500)
 }
-app(depth, goDeeper)
+animate(depth, goDeeper)
