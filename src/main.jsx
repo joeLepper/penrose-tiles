@@ -1,4 +1,5 @@
 import { render } from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { App } from './App'
 const canvas = document.getElementById('stage')
 const invisibleMirror = document.getElementById('invisible-mirror')
@@ -15,4 +16,4 @@ sizeInvisibleMirror()
 
 const appProps = { canvas, invisibleMirror }
 const root = document.getElementById('root')
-render(<App {...appProps} />, root)
+render(<BrowserRouter><App {...appProps} /></BrowserRouter>, root)
